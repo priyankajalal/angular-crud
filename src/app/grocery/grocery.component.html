@@ -1,0 +1,15 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col">
+    <ul>
+      <li><button class="btn btn-primary" (click)="getAllProducts()">All Categories</button></li>
+      <li *ngFor="let category of categories">
+        <button class="btn" (click)="getCategoryProducts(category)">{{category.name}}</button>
+      </li>
+    </ul>
+    </div>
+    <div class="col" *ngFor="let product of productList">
+        <app-grocery-item [product]='product' (addToCartEvent)="handleAddToCart($event,product)"></app-grocery-item>
+    </div>
+</div>
+</div>

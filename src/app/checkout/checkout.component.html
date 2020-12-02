@@ -1,0 +1,41 @@
+<div class="container">
+  <div style="margin-bottom:20px">
+    <h2>Shipping</h2>
+  </div>
+<div class="row"> 
+  <div class="col-4">
+    <form  #f="ngForm" (ngSubmit)="onSubmit(f)">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" ngModel id="name" class="form-control">
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label for="address">Address</label>
+          <input type="text" name="address" ngModel id="address" class="form-control">
+        </div>
+
+        <div class="col-sm-12 form-group">
+          <label for="city">City</label>
+          <input type="text" name="city" ngModel id="city" class="form-control">
+        </div>
+      </div>
+      <button class="btn btn-success" type="submit" [disabled]="!f.valid">Place Order</button>
+    </form>
+  </div>
+
+  <div style="margin-left:120px;border:1px solid #CED4DA;padding:20px;border-radius:6px;">
+    <h3>Order Summary</h3>
+    <div style="margin-bottom:30px;color:#289144;">You have {{productsList.length}} items in your shopping cart.</div>
+    
+    <div *ngFor="let product of productsList">
+        <span>{{product.productCount}} X {{product.productName}}</span>
+        <span style="float:right;">{{product.totalAmount | number:'0.2-2'}}</span>
+        <hr>
+    </div>
+    <h4>Total: {{totalCartAmount}}</h4>
+  </div>
+  
+</div>
+</div>

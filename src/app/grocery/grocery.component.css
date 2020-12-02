@@ -1,0 +1,14 @@
+ul {
+    list-style-type: none;
+}
+
+.btn {
+    border:1px solid grey;
+    width:200px;
+    text-align:left
+}
+
+.btn :hover{
+    background-color: #4CAF50;
+    color: white;
+}

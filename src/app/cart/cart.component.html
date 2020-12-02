@@ -1,0 +1,24 @@
+<div style="background:#F7F7F7;margin-left:20px">
+<div >
+  <img style="margin-left:20px;cursor:pointer;" width="80px" src="./assets/cart.png" (click)="openCart()">
+  <span style="background:gold;width:20%">{{products.length}}</span>
+</div>
+<div *ngIf="isCartClicked" style="background:#F7F7F7;margin-top:20px" >
+  <div *ngFor="let product of products" class="row">
+    <div class="col-4" style="margin-left:20px">{{product.productName}}</div>
+    <div class="col-2">
+      <button type="button" style="border:none;font-weight:bold;color:blue" (click)="onCountUp(product)">+</button>
+      {{product.productCount}}
+      <button type="button" style="border:none;font-weight:bold;color:blue" (click)="onCountDown(product)">-</button>
+    </div>
+    <div class="col-2">{{product.productPrice}}</div>
+    <div class="col-2">{{product.productPrice * product.productCount | number:'0.2-2'}}</div>
+    <div>
+      <button type="button" style="border:none;color:red;font-weight:bold" (click)="onDeleteProduct(product)">X</button>
+    </div>
+  </div>
+  <div style="font-weight:bold; margin-left:320px;">Total Amount : {{totalCartAmount}}</div>
+  <button type="button" (click)="onCheckout()" style="margin-top:20px;margin-bottom:20px;margin-left:220px;padding:5px;border:none;width:25%;border-radius:5px;background:#0087C6;color:white">Checkout</button>
+  <button type="button" (click)="closeCart()" style="margin-left:10px;padding:5px;border:none;width:95%;border-radius:5px;background:#888F9B;color:white">CLOSE</button>
+</div>
+</div>

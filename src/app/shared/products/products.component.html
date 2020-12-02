@@ -1,0 +1,60 @@
+<div class="container">
+<div style="margin-bottom:50px;" class="row">
+  <div class="col-xs-12 col-md-6">
+    <form  #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
+      <div class="row">
+          <div style="margin-left:200px;" class="col-xs-12" class="form-group">
+              <label for="name" >Name :</label>  
+              <input type="text" id="name" name="name" [(ngModel)]="product.name" class="form-control"  required placeholder="Enter Product Name">          
+          </div>  
+      </div>    
+      
+      <div class="row">
+        <div style="margin-left:200px;" class="col-xs-12" class="form-group">
+          <label for="category" >Category :</label>
+          <input type="text" id="category" name="category" [(ngModel)]="product.category" class="form-control" required placeholder="Enter Category">
+        </div>  
+      </div>    
+
+      <div class="row">
+        <div style="margin-left:200px;" class="col-xs-12" class="form-group">
+          <label  for="price" >Price :</label>
+          <input type="text" id="price" name="price" [(ngModel)]="product.price " class="form-control" required placeholder="Enter Category">
+        </div>  
+      </div>  
+      <div class="row">
+        <div style="margin-left:230px;" class="col-xs-12">  
+            <button style="margin-left:20px;" class="btn btn-success" type="submit">Add</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div>
+  <h4 style="margin-left:200px;color:darkorange;">{{message}}</h4>
+</div> 
+<div *ngFor="let product of productList">
+  <table>
+    <tr>
+      <th style="margin-right:20px;">Product Name</th>
+      <th style="margin-right:20px;">Category</th>
+      <th style="margin-right:20px;">Price</th>
+      <th>Delete</th>
+      <th>Update</th>
+    </tr>
+    <tbody>
+      <tr>
+        <td style="margin-right:20px;"><input type="text" [(ngModel)]="product.name"></td>
+        <td style="margin-right:20px;"><input type="text" [(ngModel)]="product.category"></td>
+        <td style="margin-right:20px;"><input type="text" [(ngModel)]="product.price"></td>
+        <td>
+          <button (click)="onDelete(product)" class="btn btn-danger">X</button>
+        </td>
+        <td>
+          <button (click)="onUpdate(product)" class="btn btn-success">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>

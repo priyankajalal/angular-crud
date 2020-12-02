@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
+      <form #categoryForm="ngForm" (ngSubmit)="addCategory(categoryForm.value)">
+        <div class="form-group">
+          <label for="name">Category :</label>
+          <input
+            type="text"
+            class="form-control"
+            id="name"
+            required
+            ngModel
+            name="name"
+          />
+          <button
+          class="btn btn-primary"
+          type="submit"
+        >
+          Add
+        </button>
+        </div>
+      </form>
+    </div>
+  </div>
+    <div >
+      <table>
+        <tr>
+          <th style="margin-right:20px;">Category Name</th>
+        </tr>
+        <tbody>
+          <tr *ngFor="let category of categories">
+            <td style="margin-right:20px;"><input type="text" [(ngModel)]="category.name"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  
+</div>
+        

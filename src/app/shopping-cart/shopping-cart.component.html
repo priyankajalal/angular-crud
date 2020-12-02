@@ -1,0 +1,10 @@
+
+    <div class="row">
+        <div class="col-9">
+            <app-grocery (addProductToCart)="handleProductToCart($event)"></app-grocery>
+        </div>
+        <div class="col">
+            <app-cart [products]="productsInCart"  ></app-cart>
+        </div>
+    </div>
+
